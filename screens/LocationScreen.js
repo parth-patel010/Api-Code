@@ -148,7 +148,7 @@ function PressScale({ style, children, scaleTo = 0.975, entering, onPress }) {
     transform: [{ scale: scale.value }],
   }));
 
-  return (
+  const content = (
     <Pressable
       onPress={onPress}
       onPressIn={() => {
@@ -158,9 +158,14 @@ function PressScale({ style, children, scaleTo = 0.975, entering, onPress }) {
         scale.value = withTiming(1, { duration: 280, easing: Easing.out(Easing.cubic) });
       }}
     >
-      <Animated.View entering={entering} style={[style, animStyle]}>{children}</Animated.View>
+      <Animated.View style={[style, animStyle]}>{children}</Animated.View>
     </Pressable>
   );
+
+  if (entering) {
+    return <Animated.View entering={entering}>{content}</Animated.View>;
+  }
+  return content;
 }
 
 function RadarScan({ size }) {

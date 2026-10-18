@@ -1263,6 +1263,7 @@ export default function HomeScreen({
   const [dropHour, setDropHour] = useState(8);
   const [deliveryAnywhere, setDeliveryAnywhere] = useState(false);
   const [calendarModalOpen, setCalendarModalOpen] = useState(false);
+  const [dateTimeConfirmed, setDateTimeConfirmed] = useState(false);
   const [localZone, setLocalZone] = useState(null);
 
   useEffect(() => {
